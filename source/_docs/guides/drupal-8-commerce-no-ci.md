@@ -1,5 +1,5 @@
 ---
-title: Drupal Commerce on Drupal 8
+title: Drupal Commerce on Drupal 8 Without Continuous Integration
 description: Use Composer to Install Drupal Commerce with Drupal 8, on Pantheon
 contributors: [alexfornuto, stevector]
 tags: [drupal, siteintegrations]
