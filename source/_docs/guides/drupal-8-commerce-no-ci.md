@@ -7,7 +7,7 @@ type: guide
 permalink: docs/guides/:basename/
 ---
 
-This guide covers installing [Drupal Commerce](https://drupalcommerce.org/){.external}, an e-commerce implementation designed specifically for Drupal. At the end of this guide you will have a Drupal Commerce site, GitHub repository, and Circle CI configuration for testing.
+This guide covers installing [Drupal Commerce](https://drupalcommerce.org/){.external}, an e-commerce implementation designed specifically for Drupal. At the end of this guide you will have a Drupal Commerce site managed via composer.
 
 
 ## Before You Begin
@@ -15,47 +15,32 @@ This guide covers installing [Drupal Commerce](https://drupalcommerce.org/){.ext
 This process uses Composer to manage modules and dependencies. Before proceeding, you may wish to consult the following docs:
 
  - [Composer Fundamentals and Workflows](/docs/composer)
- - [Build Tools](/docs/guides/build-tools)
 
 
-In addition to Pantheon, you will need accounts at:
-
- - [GitHub](https://github.com){.external}
- - [CircleCI](https://circleci.com){.external}
-
-
-1.  Follow the [Before You Begin](/docs/guides/build-tools/#before-you-begin) section of the Build Tools guide to install Composer, Terminus, and the Terminus Build Tools plugin on your local computer, and create machine tokens for [GitHub](https://help.github.com/articles/creating-an-access-token-for-command-line-use/){.external} and [CircleCI](https://circleci.com/account/api){.external}. Export the tokens to your current terminal session, as described below.
-
-2.  This guide uses several variables in example [Terminus](/docs/terminus) commands. This lets you copy and paste without needing to change the variable. For this to work, you must first export the variables in your local terminal session:
+1.  This guide uses several variables in example [Terminus](/docs/terminus) commands. This lets you copy and paste without needing to change the variable. For this to work, you must first export the variables in your local terminal session:
 
     ```bash
-    export SITENAME=yoursitenamehere
-    export GITHUB_TOKEN=yourgithubtokenhere
-    export CIRCLE_TOKEN=yourcirclecitokenhere
+    export $PANTHEON_SITE_NAME=yoursitenamehere
     ```
 
-    - `SITENAME` will be used as the machine names of the Pantheon site and the GitHub repo created in this process
-    - `GITHUB_TOKEN` lets Terminus interact with your GitHub account to create the repository
-    - `CIRCLE_TOKEN` is used to configure CircleCI to push to Pantheon any time a push is made to the GitHub repo
+    - `PANTHEON_SITE_NAME` will be used as the machine names of the Pantheon site and the GitHub repo created in this process
 
 ## Create a New Drupal 8 Site
 
-1.  Using the Terminus Build Tools plugin, create a new Drupal 8 site from the Pantheon [Example Drops 8 Composer](https://github.com/pantheon-systems/example-drops-8-composer) repository on GitHub:
+To begin, we’ll want to start a brand new Drupal 8 site on Pantheon from our empty upstream. This upstream is different from the Drupal 8 upstream in that it does not come with any Drupal files. As such, you must use Composer to download Drupal.
+
+Before we begin choose a machine-friendly site name. It should be all lower case with dashes instead of spaces. I'll use d8-commerce-no-ci but choose your own. Once you have a site name export it to a variable for re-use.
+
+You should also be authenticated with Terminus. See the Authenticate into Terminus section of the machine tokens documentation for details.
+
+Create a new Pantheon site with an empty upstream.
 
     ```bash
-    terminus build:project:create pantheon-systems/example-drops-8-composer $SITENAME
+    terminus site:create $PANTHEON_SITE_NAME 'My D8 Commerce Site No CI' empty
     ```
 
-    At this point *do not* go to the web interface to continue installation.
+Note you can also add the --org argument to terminus site:create if you would like the site to be part of an organization. See terminus site:create -h for details and help.
 
-2.  You now have a repository on GitHub containing your new site. Clone a local copy to your `projects` folder:
-
-    ```bash
-    cd ~/projects
-    git clone git@github.com:username/$SITENAME.git
-    ```
-
-    Remember to replace `username` with your GitHub username.
 
 ## Install Drupal Commerce
 
