@@ -19,9 +19,7 @@ This process uses Composer to manage modules and dependencies. Before proceeding
 
 1.  This guide uses several variables in example [Terminus](/docs/terminus) commands. This lets you copy and paste without needing to change the variable. For this to work, you must first export the variables in your local terminal session:
 
-    ```bash
     export $PANTHEON_SITE_NAME=yoursitenamehere
-    ```
 
     - `PANTHEON_SITE_NAME` will be used as the machine names of the Pantheon site and the GitHub repo created in this process
 
@@ -34,19 +32,87 @@ Before we begin choose a machine-friendly site name. It should be all lower case
 You should also be authenticated with Terminus. See the Authenticate into Terminus section of the machine tokens documentation for details.
 
 Create a new Pantheon site with an empty upstream.
-
-    ```bash
+   
+   ```bash
     terminus site:create $PANTHEON_SITE_NAME 'My D8 Commerce Site No CI' empty
-    ```
+   ```
 
 Note you can also add the --org argument to terminus site:create if you would like the site to be part of an organization. See terminus site:create -h for details and help.
 
+## Cloning example-drops-8-composer Locally
+
+Instead of setting up `composer.json` manually, it is easier to start with the [`example-drops-8-composer`](https://github.com/pantheon-systems/example-drops-8-composer){.external} repository.
+
+1. Clone the `example-drops-8-composer` repository locally:
+
+  ```bash
+  git clone git@github.com:pantheon-systems/example-drops-8-composer.git $PANTHEON_SITE_NAME
+  ```
+
+2. `cd` into the cloned directory:
+
+  ```bash
+  cd $PANTHEON_SITE_NAME
+  ```
+
+## Updating the Git Remote URL
+
+1. Store the Git URL for the Pantheon site created earlier in a variable:
+
+  ```bash
+  export PANTHEON_SITE_GIT_URL="$(terminus connection:info $PANTHEON_SITE_NAME.dev --field=git_url)"
+  ```
+
+2. Update the Git remote to use the Pantheon site Git URL returned rather than the `example-drops-8-composer` GitHub URL:
+
+  ```bash
+  git remote set-url origin $PANTHEON_SITE_GIT_URL
+  ```
+
+## Removing Automation Pieces
+
+`example-drops-8-composer` was designed to run automated tests on a continuous integration server. Unless you plan on running automated tests it is safe to completely remove the automated testing functionality.
+
+1. Delete the following directories:
+
+   * `scripts/github`
+   * `scripts/gitlab`
+   * `.circleci`
+   * `tests`
+
+<br>
+2. Modify `composer.json`:
+
+   * Remove all dependencies in the `require-dev` section.
+   * Update the `scripts` section to remove the `lint`, `code-sniff`, and `unit-test` lines.
+   * Remove the `find .circleci/scripts/pantheon/ -type f | xargs chmod 755,` line from the `post-update-cmd` section of `scripts`.
+   * Remove the `find tests/scripts/ -type f | xargs chmod 755` line from the `post-update-cmd` section of `scripts`.
+       * You may need to remove a trailing comma from the end of the last item in the `post-update-cmd` section, otherwise the JSON will be invalid.
+
+3. Remove the following section from `pantheon.yml`:
+
+   ```yml
+     sync_code:
+       after:
+         - type: webphp
+           description: Push changes back to GitHub if needed
+           script: private/scripts/quicksilver/quicksilver-pushback/push-back-to-github.php
+   ```
+
+## Managing Drupal with Composer
+
+<div class="alert alert-info" role="alert">
+  <h4 class="info">Note</h4>
+  <p markdown="1">When possible, use tagged versions of Composer packages. Untagged versions will include `.git` directories, and the <a href="/docs/git-faq/#does-pantheon-support-git-submodules" data-proofer-ignore> Pantheon platform is not compatible with git submodules</a>. If you remove the `.git` directories, be sure to put them back again after you push your commit up to Pantheon (see instructions below). To do this, remove the vendor directory and run `composer install`.</p>
+</div>
 
 ## Install Drupal Commerce
 
 1. Move into the local repository for your site:
-
-        cd $SITENAME
+   
+   ```bash
+      cd $PANTHEON_SITE_NAME
+   ```
 
 2. Use Composer to install the [Commerce Installation Profile](https://github.com/drupalcommerce/commerce_base){.external}:
 
