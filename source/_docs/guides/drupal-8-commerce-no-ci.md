@@ -106,6 +106,62 @@ Instead of setting up `composer.json` manually, it is easier to start with the [
   <p markdown="1">When possible, use tagged versions of Composer packages. Untagged versions will include `.git` directories, and the <a href="/docs/git-faq/#does-pantheon-support-git-submodules" data-proofer-ignore> Pantheon platform is not compatible with git submodules</a>. If you remove the `.git` directories, be sure to put them back again after you push your commit up to Pantheon (see instructions below). To do this, remove the vendor directory and run `composer install`.</p>
 </div>
 
+### Downloading Drupal Dependencies with Composer
+
+Normally the next step would go through the standard Drupal installation. But since we’re using Composer, none of the core files exist yet. Let’s use Composer to download Drupal core.
+
+1. Since we modified `composer.json` we will need to update Composer. This will also download the defined dependencies:
+
+    ```bash
+    composer update
+    ```
+
+    This may take a while as all of Drupal core and its dependencies will be downloaded. Subsequent updates should take less time.
+
+    ![image of terminal running a composer install](/source/docs/assets/images/guides/drupal-8-composer-no-ci/drops-8-composer-update.png)
+    
+2. And now we need to install:
+
+    ```bash
+    composer install
+    ```
+
+3. Let's take a look at the changes:
+
+    ```bash
+   git status
+   ```
+
+   It appears that our web directory isn't being committed. This is because the `example-drops-8-composer` `.gitignore` file assumes that you’re using a build step with continuous integration.
+
+4. To make it compatible with this manual method, you need to edit the `.gitignore` file and remove everything above the `:: cut ::` section:
+
+   **Important:** Without this modification, critical components such as Drupal core and contrib modules will be ignored and not pushed to Pantheon.
+
+5. Now let’s run `git status` again to make sure everything is included:
+
+   ```bash
+   git status
+   ```
+
+   ![Image of git status showing the changed files in red](/source/docs/assets/images/guides/drupal-8-composer-no-ci/drops-8-composer-git-status-after-installing-d8.png)
+
+6. Set the site to `git` mode:
+
+   ```bash
+   terminus connection:set $PANTHEON_SITE_NAME.dev git
+   ```
+
+7. Add and commit the code files. A Git force push is necessary because we are writing over the empty repository on Pantheon with our new history that was started on the local machine. Subsequent pushes after this initial one should not use `--force`:
+
+   ```bash
+   git add .
+   git commit -m 'Drupal 8 and dependencies'
+   git push --force
+   ```
+
+   **Note:** the `vendor` directory is being committed to Pantheon. This is because Pantheon needs the full site artifact. If you prefer to ignore the `vendor` directory then take a look at [our Build Tools guide](/docs/guides/build-tools/) for documentation on the more advanced automated workflow with a build step.
+   
 ## Install Drupal Commerce
 
 1. Move into the local repository for your site:
