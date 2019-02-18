@@ -19,7 +19,7 @@ This process uses Composer to manage modules and dependencies. Before proceeding
 
 1.  This guide uses several variables in example [Terminus](/docs/terminus) commands. This lets you copy and paste without needing to change the variable. For this to work, you must first export the variables in your local terminal session:
 
-    export $PANTHEON_SITE_NAME=yoursitenamehere
+    export PANTHEON_SITE_NAME=yoursitenamehere
 
     - `PANTHEON_SITE_NAME` will be used as the machine names of the Pantheon site and the GitHub repo created in this process
 
@@ -199,8 +199,8 @@ Normally the next step would go through the standard Drupal installation. But si
 1. The Build Tools Plugin command we used earlier automatically installed Drupal's standard profile in the Dev environment for us. Now that we've installed the Commerce profile, we want that installed instead. Using Terminus, we can run the Drush command `site-install` which will first clear the database of the Standard profile before installing Commerce. This Drush command requires that the system be in writable (SFTP) mode:
 
    ```bash
-   terminus connection:set $SITENAME.dev sftp
-   terminus drush $SITENAME.dev -- site-install commerce
+   terminus connection:set $PANTHEON_SITE_NAME.dev sftp
+   terminus drush $PANTHEON_SITE_NAME.dev -- site-install commerce
    ```
 
    Review the last two lines of output to identify the username and password created:
