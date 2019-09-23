@@ -331,6 +331,8 @@
             - text: 'Local Development'
               url: '/videos/local/'
               icon: 'fa fa-video-camera'
+            - text: 'Install and Configure Lando'
+              url: '/guides/lando/'
             - text: 'Configuring JetBrains PhpStorm IDE with Drupal on Pantheon'
               url: '/drupal-phpstorm/'
             - text: 'Local Development'
