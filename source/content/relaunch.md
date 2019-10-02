@@ -10,6 +10,8 @@ Sites are considered launched on Pantheon once traffic is routed through custom 
 
 The relaunch process applies exclusively to live sites already hosted on Pantheon. Otherwise, refer to [Launch Essentials](/guides/launch/).
 
+If your site is using an addition CDN layer, installed either by you or Pantheon Professional Services, there may be additional steps. We recommend contacting support to confirm the details for your site. 
+
 </Alert>
 
 ## Before You Begin
