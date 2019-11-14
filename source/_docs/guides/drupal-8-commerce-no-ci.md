@@ -164,24 +164,37 @@ Normally the next step would go through the standard Drupal installation. But si
    
 ## Install Drupal Commerce
 
+ **Note:**
+As packages pulled by Composer are updated (along with their dependencies), version compatibility issues can pop up. Sometimes you may need to manually alter the version constraints on a given package within the require or require-dev section of composer.json in order to update packages. See the updating dependencies section of Composer's documentation for more information.
+
+As a first troubleshooting step, try running composer update to bring composer.lock up to date with the latest available packages (as constrained by the version requirements in composer.json).
+
 1. Move into the local repository for your site:
    
    ```bash
       cd $PANTHEON_SITE_NAME
    ```
+2. Install commerce base dependencies:
+   ```bash
+   composer require "drupal/swiftmailer 1.x-dev"
+   composer require "drupal/entity 1.x-dev"
+   composer require "drupal/inline_entity_form 1.x-dev"
+   composer require "drupal/state_machine 1.x-dev"
+   composer require "drupal/commerce 2.15.0"
+   ```
 
-2. Use Composer to install the [Commerce Installation Profile](https://github.com/drupalcommerce/commerce_base){.external}:
+3. Use Composer to install the [Commerce Installation Profile](https://github.com/drupalcommerce/commerce_base){.external}:
 
    ```bash
    composer config repositories.commerce_base vcs https://github.com/drupalcommerce/commerce_base
    composer require "drupalcommerce/commerce_base dev-8.x-1.x"
    ```
 
-3. Running `git status` should show that the `composer.json` and `composer.lock` files have changed:
+4. Running `git status` should show that the `composer.json` and `composer.lock` files have changed:
 
    ![Git Status showing updated Composer files](/source/docs/assets/images/guides/drupal-8-commerce/git-status.png)
 
-4. Commit the new files and push them to GitHub:
+5. Commit the new files and push them to GitHub:
 
    ```bash
    git commit -am "add commerce_base to project"
