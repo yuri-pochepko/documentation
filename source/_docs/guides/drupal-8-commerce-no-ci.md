@@ -78,7 +78,11 @@ Instead of setting up `composer.json` manually, it is easier to start with the [
    * `scripts/github`
    * `scripts/gitlab`
    * `.circleci`
+   * `.ci`
    * `tests`
+   * `bitbucket-pipelines.yml`
+   * `build-providers.json`
+   * `.gitlab-ci.yml`
 
 <br>
 2. Modify `composer.json`:
