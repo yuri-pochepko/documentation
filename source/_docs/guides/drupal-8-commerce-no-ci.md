@@ -172,6 +172,7 @@ As packages pulled by Composer are updated (along with their dependencies), vers
 As a first troubleshooting step, try running composer update to bring composer.lock up to date with the latest available packages (as constrained by the version requirements in composer.json).
 
 1. Update composer.json file add composer_base and its dependencies under "require".
+
    ```bash
       "drupal/swiftmailer": "1.x-dev",
       "drupal/entity": "1.x-dev",
@@ -179,7 +180,7 @@ As a first troubleshooting step, try running composer update to bring composer.l
       "drupal/state_machine": "1.x-dev",
       "drupal/commerce": "2.15.0",
       "drupalcommerce/commerce_base": "dev-8.x-1.x"
-   ```
+    ```
 2. Add commerce_base type and url.
    ```bash
       "commerce_base": {
