@@ -171,26 +171,27 @@ As packages pulled by Composer are updated (along with their dependencies), vers
 
 As a first troubleshooting step, try running composer update to bring composer.lock up to date with the latest available packages (as constrained by the version requirements in composer.json).
 
-1. Move into the local repository for your site:
-   
+1. Update composer.json file add composer_base and its dependencies under "require".
    ```bash
-      cd $PANTHEON_SITE_NAME
+      "drupal/swiftmailer": "1.x-dev",
+      "drupal/entity": "1.x-dev",
+      "drupal/inline_entity_form": "1.x-dev",
+      "drupal/state_machine": "1.x-dev",
+      "drupal/commerce": "2.15.0",
+      "drupalcommerce/commerce_base": "dev-8.x-1.x"
    ```
-2. Install commerce base dependencies:
+2. Add commerce_base type and url.
    ```bash
-   composer require "drupal/swiftmailer 1.x-dev"
-   composer require "drupal/entity 1.x-dev"
-   composer require "drupal/inline_entity_form 1.x-dev"
-   composer require "drupal/state_machine 1.x-dev"
-   composer require "drupal/commerce 2.15.0"
-   ```
+      "commerce_base": {
+         "type": "vcs",
+         "url": "https://github.com/drupalcommerce/commerce_base"
+      }
+    ```
 
-3. Use Composer to install the [Commerce Installation Profile](https://github.com/drupalcommerce/commerce_base){.external}:
+4. Update scripts section add "remove-git-submodules" and update "post-update-command" add "@remove-git-submodules".
+    * "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
 
-   ```bash
-   composer config repositories.commerce_base vcs https://github.com/drupalcommerce/commerce_base
-   composer require "drupalcommerce/commerce_base dev-8.x-1.x"
-   ```
+3. Run composer update.
 
 4. Running `git status` should show that the `composer.json` and `composer.lock` files have changed:
 
@@ -199,11 +200,11 @@ As a first troubleshooting step, try running composer update to bring composer.l
 5. Commit the new files and push them to GitHub:
 
    ```bash
-   git commit -am "add commerce_base to project"
+   git commit -am "add commerce_base and its dependencies to project"
    git push origin master
    ```
 
-5. Go to your newly created Site Dashboard. Under the <span class="glyphicons glyphicons-wrench"></span> **Dev** tab, click on <span class="glyphicons glyphicons-embed-close"></span> **Code**, then **install later**. You should now see your commit history. Once CircleCI completes the automated tests built into our repository, it will commit the build assets and push them to Dev:
+6. Go to your newly created Site Dashboard. Under the <span class="glyphicons glyphicons-wrench"></span> **Dev** tab, click on <span class="glyphicons glyphicons-embed-close"></span> **Code**, then **install later**. You should now see your commit history. Once CircleCI completes the automated tests built into our repository, it will commit the build assets and push them to Dev:
 
     ![Build Assets on Dev](/source/docs/assets/images/guides/drupal-8-commerce/build-assets.png)
 
