@@ -171,7 +171,7 @@ As packages pulled by Composer are updated (along with their dependencies), vers
 
 As a first troubleshooting step, try running composer update to bring composer.lock up to date with the latest available packages (as constrained by the version requirements in composer.json).
 
-1. Update composer.json add `composer_base` and its `dependencies` under `require` section.
+1. Update `composer.json` add `composer_base` and its `dependencies` under `require` section.
 
    ```bash
       "drupal/swiftmailer": "1.x-dev",
@@ -193,7 +193,9 @@ As a first troubleshooting step, try running composer update to bring composer.l
 
 4. Update `scripts` section add `remove-git-submodules` and update `post-update-command` add `@remove-git-submodules`.
 
-    * "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
+   ```bash
+      "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
+      ```
 
 3. Since we modified `composer.json` we will need to update Composer.
 
