@@ -174,21 +174,21 @@ As a first troubleshooting step, try running composer update to bring composer.l
 1. Update `composer.json` add `composer_base` and its `dependencies` under `require` section.
 
    ```bash
-      "drupal/swiftmailer": "1.x-dev",
-      "drupal/entity": "1.x-dev",
-      "drupal/inline_entity_form": "1.x-dev",
-      "drupal/state_machine": "1.x-dev",
-      "drupal/commerce": "2.15.0",
-      "drupalcommerce/commerce_base": "dev-8.x-1.x"
+   "drupal/swiftmailer": "1.x-dev",
+   "drupal/entity": "1.x-dev",
+   "drupal/inline_entity_form": "1.x-dev",
+   "drupal/state_machine": "1.x-dev",
+   "drupal/commerce": "2.15.0",
+   "drupalcommerce/commerce_base": "dev-8.x-1.x"
     ```
     
 2. Update `repositories` section of your `composer.json` file add `commerce_base`.
 
    ```bash
-      "commerce_base": {
-         "type": "vcs",
-         "url": "https://github.com/drupalcommerce/commerce_base"
-      }
+    "commerce_base": {
+       "type": "vcs",
+       "url": "https://github.com/drupalcommerce/commerce_base"
+    }
     ```
 
 4. Update `scripts` section add `remove-git-submodules` and update `post-update-command` add `@remove-git-submodules`.
