@@ -171,7 +171,7 @@ As packages pulled by Composer are updated (along with their dependencies), vers
 
 As a first troubleshooting step, try running composer update to bring composer.lock up to date with the latest available packages (as constrained by the version requirements in composer.json).
 
-1. Update composer.json file add composer_base and its dependencies under "require".
+1. Update composer.json add `composer_base` and its `dependencies` under `require` section.
 
    ```bash
       "drupal/swiftmailer": "1.x-dev",
@@ -181,7 +181,9 @@ As a first troubleshooting step, try running composer update to bring composer.l
       "drupal/commerce": "2.15.0",
       "drupalcommerce/commerce_base": "dev-8.x-1.x"
     ```
-2. Add commerce_base type and url.
+    
+2. Update `repositories` section of your `composer.json` file add `commerce_base`.
+
    ```bash
       "commerce_base": {
          "type": "vcs",
@@ -189,23 +191,29 @@ As a first troubleshooting step, try running composer update to bring composer.l
       }
     ```
 
-4. Update scripts section add "remove-git-submodules" and update "post-update-command" add "@remove-git-submodules".
+4. Update `scripts` section add `remove-git-submodules` and update `post-update-command` add `@remove-git-submodules`.
+
     * "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
 
-3. Run composer update.
+3. Since we modified `composer.json` we will need to update Composer.
 
-4. Running `git status` should show that the `composer.json` and `composer.lock` files have changed:
+    ```bash
+    composer update
+    ```
+
+4. Running `git status` should show new files `commerce_base` and its `dependencies`:
 
    ![Git Status showing updated Composer files](/source/docs/assets/images/guides/drupal-8-commerce/git-status.png)
 
 5. Commit the new files and push them to GitHub:
 
    ```bash
-   git commit -am "add commerce_base and its dependencies to project"
+   git add .
+   git commit -m "add commerce_base and its dependencies to project"
    git push origin master
    ```
-
-6. Go to your newly created Site Dashboard. Under the <span class="glyphicons glyphicons-wrench"></span> **Dev** tab, click on <span class="glyphicons glyphicons-embed-close"></span> **Code**, then **install later**. You should now see your commit history. Once CircleCI completes the automated tests built into our repository, it will commit the build assets and push them to Dev:
+   
+6. Go to your newly created Site Dashboard. Under the <span class="glyphicons glyphicons-wrench"></span> **Dev** tab you should now see your commit history:
 
     ![Build Assets on Dev](/source/docs/assets/images/guides/drupal-8-commerce/build-assets.png)
 
