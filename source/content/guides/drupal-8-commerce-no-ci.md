@@ -171,51 +171,49 @@ As packages pulled by Composer are updated (along with their dependencies), vers
 
 As a first troubleshooting step, try running composer update to bring composer.lock up to date with the latest available packages (as constrained by the version requirements in composer.json).
 
-1. Update composer.json add `composer_base` and its `dependencies` under `require` section.
+1. Update `composer.json` add `composer_base` and its `dependencies` under `require` section.
 
    ```bash
-      "drupal/swiftmailer": "1.x-dev",
-      "drupal/entity": "1.x-dev",
-      "drupal/inline_entity_form": "1.x-dev",
-      "drupal/state_machine": "1.x-dev",
-      "drupal/commerce": "2.15.0",
-      "drupalcommerce/commerce_base": "dev-8.x-1.x"
+   "drupal/swiftmailer": "1.x-dev",
+   "drupal/entity": "1.x-dev",
+   "drupal/inline_entity_form": "1.x-dev",
+   "drupal/state_machine": "1.x-dev",
+   "drupal/commerce": "2.15.0",
+   "drupalcommerce/commerce_base": "dev-8.x-1.x"
     ```
     
 2. Update `repositories` section of your `composer.json` file add `commerce_base`.
 
    ```bash
-      "commerce_base": {
-         "type": "vcs",
-         "url": "https://github.com/drupalcommerce/commerce_base"
-      }
+    "commerce_base": {
+       "type": "vcs",
+       "url": "https://github.com/drupalcommerce/commerce_base"
+    }
     ```
 
-4. Update `scripts` section add `remove-git-submodules` and update `post-update-command` add `@remove-git-submodules`.
+3. Update `scripts` section add `remove-git-submodules` and update `post-update-command` add `@remove-git-submodules`.
 
-    * "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
-
-3. Since we modified `composer.json` we will need to update Composer.
+   ```bash
+   "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf"
+    ```
+      
+4. Since we modified `composer.json` we will need to update Composer.
 
     ```bash
     composer update
     ```
 
-4. Running `git status` should show new files `commerce_base` and its `dependencies`:
+5. Running `git status` should show new files `commerce_base` and its `dependencies`:
 
    ![Git Status showing updated Composer files](/source/docs/assets/images/guides/drupal-8-commerce/git-status.png)
 
-5. Commit the new files and push them to GitHub:
+6. Commit the new files and push them to GitHub:
 
    ```bash
    git add .
    git commit -m "add commerce_base and its dependencies to project"
    git push origin master
    ```
-   
-6. Go to your newly created Site Dashboard. Under the <span class="glyphicons glyphicons-wrench"></span> **Dev** tab you should now see your commit history:
-
-    ![Build Assets on Dev](/source/docs/assets/images/guides/drupal-8-commerce/build-assets.png)
 
 ## Reinstall Drupal
 
