@@ -194,8 +194,8 @@ As a first troubleshooting step, try running composer update to bring composer.l
 4. Update `scripts` section add `remove-git-submodules` and update `post-update-command` add `@remove-git-submodules`.
 
    ```bash
-      "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf"
-      ```
+   "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf"
+    ```
       
 3. Since we modified `composer.json` we will need to update Composer.
 
