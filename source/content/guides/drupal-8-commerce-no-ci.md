@@ -34,7 +34,7 @@ You should also be authenticated with Terminus. See the Authenticate into Termin
 Create a new Pantheon site with an empty upstream.
    
    ```bash
-    terminus site:create $PANTHEON_SITE_NAME 'My D8 Commerce Site No CI' empty
+   terminus site:create $PANTHEON_SITE_NAME 'My D8 Commerce Site No CI' empty
    ```
 
 Note you can also add the --org argument to terminus site:create if you would like the site to be part of an organization. See terminus site:create -h for details and help.
