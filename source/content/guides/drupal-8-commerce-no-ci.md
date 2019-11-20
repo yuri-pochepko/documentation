@@ -120,7 +120,7 @@ Normally the next step would go through the standard Drupal installation. But si
 
     This may take a while as all of Drupal core and its dependencies will be downloaded. Subsequent updates should take less time.
 
-    ![image of terminal running a composer install](/source/docs/assets/images/guides/drupal-8-composer-no-ci/drops-8-composer-update.png)
+    ![image of terminal running a composer install](/source/docs/assets/images/guides/drupal-8-commerce-no-ci/drops-8-composer-update.png)
     
 2. And now we need to install:
 
@@ -146,7 +146,7 @@ Normally the next step would go through the standard Drupal installation. But si
    git status
    ```
 
-   ![Image of git status showing the changed files in red](/source/docs/assets/images/guides/drupal-8-composer-no-ci/drops-8-composer-git-status-after-installing-d8.png)
+   ![Image of git status showing the changed files in red](/source/docs/assets/images/guides/drupal-8-commerce-no-ci/drops-8-composer-git-status-after-installing-d8.png)
 
 6. Set the site to `git` mode:
 
@@ -205,7 +205,7 @@ As a first troubleshooting step, try running composer update to bring composer.l
 
 5. Running `git status` should show new files `commerce_base` and its `dependencies`:
 
-   ![Git Status showing updated Composer files](/source/docs/assets/images/guides/drupal-8-commerce/git-status.png)
+   ![Git Status showing updated Composer files](/source/docs/assets/images/guides/drupal-8-commerce-no-ci/git-status.png)
 
 6. Commit the new files and push them to GitHub:
 
@@ -234,7 +234,7 @@ As a first troubleshooting step, try running composer update to bring composer.l
 
 2. Log in to your Drupal site in the Dev environment. The presence of the **Commerce** button on the toolbar indicates a succefull install:
 
-    ![Drupal Commerce in the Toolbar](/source/docs/assets/images/guides/drupal-8-commerce/commerce-button.png)
+    ![Drupal Commerce in the Toolbar](/source/docs/assets/images/guides/drupal-8-commerce-no-ci/commerce-button.png)
 
 ## Conclusion
 
