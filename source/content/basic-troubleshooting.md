@@ -30,12 +30,26 @@ Deleted README.txt files can cause dashboard conflicts
 ### White Screen of Death (WSOD)
 The **WSOD** is a frustrating issue on WordPress sites, since it provides no useful information on the cause. The first place you should look for information is the [log files](/logs/). See [PHP Errors and Exceptions](https://pantheon.io/docs/php-errors) for more information on the type of errors you may find.
 
+[Enable debugging](https://https://pantheon.io/docs/wp-config-php#how-do-i-enable-debugging) in wp-config.php. 
+
 ### Disable All Plugins
 If your WordPress site exhibits unwanted behavior and you're not sure of the cause, try disabling all your plugins. If the behavior stops, turn the plugins back on one by one, checking after each one to identify the culprit.
 
 ### Disable Plugins Incrementally
 
 ### Switch Theme to Default Theme
+Some themes can cause potential conflicts with Wordpress core, especially after core or plugin updates. To rule out the issue being your theme, switch to a default theme such as Twenty Nineteen.
+
+### Unexpected 404s
+
+There are times the permalink structure in Wordpress is not updated properly, leading to 404 errors. Go to **Settings** > **Permalinks** in your Wordpress Dashboard and click **Save Changes**.
+
+Check that the Wordpress Address and Site Address are properly configured in your Wordpress Dashboard. These can also be overwritten in your wp-config.php file:
+
+```bash
+define('WP_HOME', 'https://example.com');
+define('WP_SITEURL', 'https://example.com');
+```
 
 ## Drupal 7
 
@@ -53,3 +67,6 @@ $config['system.logging']['error_level'] = 'verbose';
 
 ### Debugging With Drush
 
+```bash
+drush rr
+```
