@@ -13,6 +13,19 @@ In general, if the Pantheon Dashboard stops responding, the first step is to ref
 ### HTTPS Issues
 When resolving issues with Pantheon's [HTTPS](/https/) certificates, a good first step is to remove and re-add the domain, which will restart the certificate provisioning process.
 
+### Caching
+
+### Code Changes
+If changes to your code don't appear to be showing. 
+
+Check that there isn't a .gitignore that may be ignoring those files. (git check-ignore -v path/to/file)
+Check composer dependencies. When a composer package has a .gitignore in it or a .git/ folder the platform is going to ignore the files in that folder.
+
+Conflicts
+
+Auto-resolve conflicts checkbox
+Deleted README.txt files can cause dashboard conflicts
+
 ## WordPress
 ### White Screen of Death (WSOD)
 The **WSOD** is a frustrating issue on WordPress sites, since it provides no useful information on the cause. The first place you should look for information is the [log files](/logs/). See [PHP Errors and Exceptions](https://pantheon.io/docs/php-errors) for more information on the type of errors you may find.
@@ -22,7 +35,21 @@ If your WordPress site exhibits unwanted behavior and you're not sure of the cau
 
 ### Disable Plugins Incrementally
 
+### Switch Theme to Default Theme
+
 ## Drupal 7
 
 ## Drupal 8
+
+### Twig Debugging
+Turn on debugging in twig.
+
+### Displaying Error Messages
+```bash
+$config['system.logging']['error_level'] = 'verbose';
+```
+
+### Using Devel
+
+### Debugging With Drush
 
