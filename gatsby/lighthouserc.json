@@ -1,24 +1,24 @@
 {
-    "ci": {
-      "collect": {
-        "url": [
-            "process.env.MULTIDEV_SITE_URL",
-            "https://pantheon.io/docs"
-        ],
-        "numberOfRuns": 3,
-        "settings": {
-          "configPath": "./tests/lighthouse/lighthouse-config.json"
-        }
-      },
-      "assert": {
-        "preset": "lighthouse:recommended",
-        "assertions": {
-          "offscreen-images": "off",
-          "uses-webp-images": "off"
-        }
-      },
-      "upload": {
-        "target": "process.env.ARTIFACTS_FULL_DIR"
+  "ci": {
+    "collect": {
+      "settings": {
+        "configPath": "./tests/lighthouse/lighthouse-config.js"
+    },
+    "url": [
+      "process.env.MULTIDEV_SITE_URL",
+      "https://pantheon.io/docs"
+    ],
+    "numberOfRuns": 3,
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "offscreen-images": "off",
+        "uses-webp-images": "off"
       }
+    },
+    "upload": {
+      "target": "process.env.ARTIFACTS_FULL_DIR"
     }
   }
+}
