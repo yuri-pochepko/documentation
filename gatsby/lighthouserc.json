@@ -4,11 +4,7 @@
       "settings": {
         "configPath": "./tests/lighthouse/lighthouse-config.js"
     },
-    "url": [
-      "process.env.MULTIDEV_SITE_URL",
-      "https://pantheon.io/docs"
-    ],
-    "numberOfRuns": 3,
+    "numberOfRuns": 3
     },
     "assert": {
       "preset": "lighthouse:recommended",
