@@ -126,7 +126,7 @@ jobs:
           command: .circleci/scripts/set-env.sh && source $BASH_ENV
       - run:
           name: Lighthouse Audit
-          command: .circleci/tests/lighthouse/run
+          command: gatsby/node_modules/.bin/lhci collect
       - store_artifacts:
           path: gatsby/lighthouse_data/
           destination: lighthouse_data/
