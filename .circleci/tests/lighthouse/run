@@ -1,53 +1,65 @@
 #!/bin/bash
 
 # Variables
-BUILD_DIR=$(pwd)
-GITHUB_API_URL="https://api.github.com/repos/$CI_PROJECT_USERNAME/$CI_PROJECT_REPONAME"
 source $BASH_ENV
 
-# exit when any command fails
+# Exit when any command fails
 set -e
 
-# Check if we are NOT on the master branch and this is a PR
-if [[ ${CIRCLE_BRANCH} != "master" && -z ${CI_PULL_REQUEST} ]];
-then
-  echo -e "\nLighthouse audits will only run if we are not on the master branch and making a pull request"
-  exit 0;
-fi
+echo -e "\nProcessing commit $CIRCLE_SHA1"
 
-echo -e "\nProcessing pull request #$CIRCLE_PR_NUMBER"
-
-# Lighthouse audits
-echo -e "\nRunning lighthouse audits..."
-cd $BUILD_PATH/gatsby
-npm run lighthouse-run
-
-# Create the artifacts directory if needed
+# Prepare the environment
+## Create the artifacts directory if needed
 if [ ! -d "$ARTIFACTS_FULL_DIR" ]; then
   mkdir -p $ARTIFACTS_FULL_DIR
 fi
 
-# Copy lighthouse files to ARTIFACTS_FULL_DIR
-echo -e "\nCopying lighthouse_data files to $ARTIFACTS_FULL_DIR..."
-rm -rf $ARTIFACTS_FULL_DIR/lighthouse_data
-cp -r lighthouse_data $ARTIFACTS_FULL_DIR/
+## Create Subfolders for the tests artifacts
+mkdir -p $ARTIFACTS_FULL_DIR/$MULTIDEV_NAME
+mkdir -p $ARTIFACTS_FULL_DIR/live
 
-DEV_HTML_REPORT="$ARTIFACTS_FULL_DIR/lighthouse_data/lighthouse-audit-dev.html"
+# Lighthouse audits
+## Run against Preview environment
+echo -e "\nRunning lighthouse audits on $MULTIDEV_SITE_URL..."
+cd $BUILD_PATH/gatsby
+./node_modules/.bin/lhci collect --url=$MULTIDEV_SITE_URL
 
-if [ ! -f $DEV_HTML_REPORT ]; then
-	echo -e "\nDev HTML report file $DEV_HTML_REPORT not found!"
+## Copy preview report files to ARTIFACTS_FULL_DIR
+echo -e "\nCopying Results to $ARTIFACTS_FULL_DIR/$MULTIDEV_NAME..."
+rm -rf $ARTIFACTS_FULL_DIR/$MULTIDEV_NAME
+cp -r .lighthouseci/* $ARTIFACTS_FULL_DIR/$MULTIDEV_NAME
+
+## Clean report target dir
+rm -rf .lighthouseci/*
+
+## Run against Production environment
+echo -e "\nRunning lighthouse audits on $MULTIDEV_SITE_URL..."
+cd $BUILD_PATH/gatsby
+./node_modules/.bin/lhci collect --url=https://pantheon.io/docs
+
+## Copy Production report files to ARTIFACTS_FULL_DIR
+echo -e "\nCopying Results to $ARTIFACTS_FULL_DIR/live..."
+rm -rf $ARTIFACTS_FULL_DIR/live
+cp -r .lighthouseci/* $ARTIFACTS_FULL_DIR/live
+
+
+# Generate Vars
+DEV_HTML_REPORTS="$ARTIFACTS_FULL_DIR/$MULTIDEV_NAME/"
+
+if [ ! -f $DEV_HTML_REPORTS ]; then
+	echo -e "\nDev HTML reports directory $DEV_HTML_REPORT not found!"
 	exit 1
 fi
 
-REFERENCE_HTML_REPORT="$ARTIFACTS_FULL_DIR/lighthouse_data/lighthouse-audit-reference.html"
+REFERENCE_HTML_REPORTS="$ARTIFACTS_FULL_DIR/live/"
 
-if [ ! -f $REFERENCE_HTML_REPORT ]; then
-	echo -e "\nReference HTML report file $REFERENCE_HTML_REPORT not found!"
+if [ ! -f $REFERENCE_HTML_REPORTS ]; then
+	echo -e "\nReference HTML reports directory $REFERENCE_HTML_REPORTS not found!"
 	exit 1
 fi
 
-DEV_HTML_REPORT_URL="$ARTIFACTS_DIR_URL/lighthouse_data/lighthouse-audit-dev.html"
-REFERENCE_HTML_REPORT_URL="$ARTIFACTS_DIR_URL/lighthouse_data/lighthouse-audit-reference.html"
+DEV_HTML_REPORTS_URL="$ARTIFACTS_DIR_URL/$MULTIDEV_NAME/"
+REFERENCE_HTML_REPORTS_URL="$ARTIFACTS_DIR_URL/live/"
 
 PR_MESSAGE="Lighthouse audit results:\n- [Dev HTML Report]($DEV_HTML_REPORT_URL)\n- [Reference HTML Report]($REFERENCE_HTML_REPORT_URL)"
 
@@ -59,5 +71,8 @@ then
 fi
 
 # Test Lighthouse results
-echo -e "\nTesting Lighthouse results..."
-npm run lighthouse-test
+#echo -e "\nTesting Lighthouse results..."
+#npm run lighthouse-test
+
+#Comment on Commit
+curl -d '{ "body": "Artifacts: '$ARTIFACTS_DIR_URL'" }' -X POST https://api.github.com/repos/pantheon-systems/documentation/commits/$CIRCLE_SHA1/comments?access_token=$GITHUB_TOKEN

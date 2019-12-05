@@ -59,7 +59,7 @@
     "tocbot": "^4.8.1"
   },
   "devDependencies": {
-    "@lhci/cli": "^0.3.5",
+    "@lhci/cli": "^0.3.6",
     "@octokit/rest": "^16.35.0",
     "prettier": "^1.16.4"
   },
