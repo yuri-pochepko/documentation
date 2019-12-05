@@ -39,20 +39,6 @@ echo -e "\nCopying Results to $ARTIFACTS_FULL_DIR/live..."
 cp -r .lighthouseci/* $ARTIFACTS_FULL_DIR/live
 
 
-# Generate Vars
-DEV_HTML_REPORTS="$ARTIFACTS_FULL_DIR/$MULTIDEV_NAME/"
-
-if [ ! -f $DEV_HTML_REPORTS ]; then
-	echo -e "\nDev HTML reports directory $DEV_HTML_REPORT not found!"
-	exit 1
-fi
-
-REFERENCE_HTML_REPORTS="$ARTIFACTS_FULL_DIR/live/"
-
-if [ ! -f $REFERENCE_HTML_REPORTS ]; then
-	echo -e "\nReference HTML reports directory $REFERENCE_HTML_REPORTS not found!"
-	exit 1
-fi
 
 DEV_HTML_REPORTS_URL="$ARTIFACTS_DIR_URL/$MULTIDEV_NAME/"
 REFERENCE_HTML_REPORTS_URL="$ARTIFACTS_DIR_URL/live/"
