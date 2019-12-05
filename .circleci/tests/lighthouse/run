@@ -20,7 +20,6 @@ mkdir -p $ARTIFACTS_FULL_DIR/live
 
 # Lighthouse audits
 ## Run against Preview environment
-echo -e "\nRunning lighthouse audits on $MULTIDEV_SITE_URL..."
 cd $BUILD_PATH/gatsby
 ./node_modules/.bin/lhci collect --url=$MULTIDEV_SITE_URL
 
@@ -33,7 +32,6 @@ cp -r .lighthouseci/* $ARTIFACTS_FULL_DIR/$MULTIDEV_NAME
 rm -rf .lighthouseci/*
 
 ## Run against Production environment
-echo -e "\nRunning lighthouse audits on $MULTIDEV_SITE_URL..."
 cd $BUILD_PATH/gatsby
 ./node_modules/.bin/lhci collect --url=https://pantheon.io/docs
 

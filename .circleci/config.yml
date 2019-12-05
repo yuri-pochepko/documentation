@@ -126,9 +126,9 @@ jobs:
           command: .circleci/scripts/set-env.sh && source $BASH_ENV
       - run:
           name: Lighthouse Audit
-          command: cd gatsby; ./node_modules/.bin/lhci collect --url=$MULTIDEV_SITE_URL --url=https://pantheon.io/docs
+          command: .circleci/tests/lighthouse/run
       - store_artifacts:
-          path: gatsby/.lighthouseci/
+          path: artifacts
           destination: lighthouse/
 
   deploy:
