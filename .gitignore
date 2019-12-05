@@ -21,3 +21,4 @@ npm-debug.log
 .env.*
 /.vscode/
 */lighthouse_data/
+*.lighthouseci

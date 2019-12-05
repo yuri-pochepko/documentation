@@ -25,7 +25,6 @@ cd $BUILD_PATH/gatsby
 
 ## Copy preview report files to ARTIFACTS_FULL_DIR
 echo -e "\nCopying Results to $ARTIFACTS_FULL_DIR/$MULTIDEV_NAME..."
-rm -rf $ARTIFACTS_FULL_DIR/$MULTIDEV_NAME
 cp -r .lighthouseci/* $ARTIFACTS_FULL_DIR/$MULTIDEV_NAME
 
 ## Clean report target dir
@@ -37,7 +36,6 @@ cd $BUILD_PATH/gatsby
 
 ## Copy Production report files to ARTIFACTS_FULL_DIR
 echo -e "\nCopying Results to $ARTIFACTS_FULL_DIR/live..."
-rm -rf $ARTIFACTS_FULL_DIR/live
 cp -r .lighthouseci/* $ARTIFACTS_FULL_DIR/live
 
 
