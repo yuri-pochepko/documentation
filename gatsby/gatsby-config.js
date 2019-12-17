@@ -32,7 +32,11 @@ module.exports = {
       options: {
         id: process.env.GTM_ID,
         includeInDevelopment: false,
-        defaultDataLayer: { },
+        defaultDataLayer: function() {
+          return {
+            _url: window.location.pathname + window.location.search + window.location.hash
+          }
+         },
       }
     },
     {
