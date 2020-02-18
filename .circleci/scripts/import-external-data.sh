@@ -41,3 +41,8 @@ echo "Downloading Build Tools Changelog"
 curl -v -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/pantheon-systems/terminus-build-tools-plugin/releases > source/data/buildToolsReleases.json
 echo "Convert local Issue and Pull references to Markdown links"
 sed -i -E "s/(#)([0-9]{3})/\[#\2\]\(https:\/\/github.com\/pantheon-systems\/terminus-build-tools-plugin\/issues\/\2)/g" ./source/data/buildToolsReleases.json
+
+## Import WordPress API Root
+echo "Downloading WordPress API Root"
+wget -O ./source/data/wp/root.json https://scalewp.io/wp-json/wp/v2/
+#curl -v -X OPTIONS https://scalewp.io/wp-json/wp/v2/posts > ./source/data/wp/posts.json

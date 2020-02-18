@@ -26,6 +26,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-rest-api`,
+      options: {
+        endpoints: [
+          `https://scalewp.io/wp-json/wp/v2/`,
+        ],
+      },
+    },
+    {
       resolve: `gatsby-transformer-yaml-full`,
       options: {
         plugins: [

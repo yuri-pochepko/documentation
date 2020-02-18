@@ -29,6 +29,7 @@ import Example from "../components/styleExample"
 import LocaldevChangelog from "../components/localdevChangelog"
 import DrushChangelog from "../components/drushChangelog"
 import ReviewDate from "../components/reviewDate"
+import WpApiPosts from "../components/wpApi/posts.js"
 
 const shortcodes = {
   Callout,
@@ -50,7 +51,8 @@ const shortcodes = {
   Example,
   LocaldevChangelog,
   DrushChangelog,
-  ReviewDate
+  ReviewDate,
+  WpApiPosts
 }
 
 class DocTemplate extends React.Component {
