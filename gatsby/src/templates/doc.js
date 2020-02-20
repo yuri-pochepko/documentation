@@ -122,10 +122,12 @@ class DocTemplate extends React.Component {
             </div>
           </div>
         </div>
+        <div className="container">
           <GetFeedback
-            formId="tfYOGoE7"
+            formId="SatlP2R7"
             page={"/" + node.fields.slug}
           />
+        </div>
       </Layout>
     )
   }
