@@ -7,6 +7,8 @@ contributors: [alexfornuto]
 
 This self-referencing document can be used as a starting point to write your own new doc for Pantheon. Start with an overview of the topic, which may include a summary of what will be accomplished after following the instructions. 
 
+<WordPressAPIRef />
+
 See our [Style Guide](/style-guide) for reference on our usage of Markdown and custom JSX components.
 
 <Alert title="Note" type="info">
