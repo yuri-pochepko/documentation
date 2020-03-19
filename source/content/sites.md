@@ -9,51 +9,11 @@ The Site Dashboard is where you can find all the tools you need to successfully 
 
 ![Site Dashboard](../images/dashboard/site-dashboard-image.png)
 
+## Dev Test and Live Environments
+
 At the top of the page you'll find all the environments for your site: Dev, Test, and Live. Additional development environments are available with [Multidev](/multidev).
 
 The **Visit Site** button is available for each environment so you can view the site in each environment. This helpful to view changes in Dev or Test before moving them to Live.
-
-## Team
-
-The Team tab allows you to change the site owner; add supporting agencies; and add, manage, and delete users. For more information, see [Team Management](/team-management).
-
-## Settings
-
-### Add-Ons
-
-Pantheon offers several add-ons to help you build dynamic sites. These include [Apache Solr](/solr) and [Redis](/redis).
-
-### Delete Site
-
-If you no longer need your site, you can remove it here.
-
-<Alert title="Warning" type="danger">
-
-This is a permanent change and once you delete it your site cannot be restored.
-
-</Alert>
-
-### About Site
-
-This tab shows general information about your site, such as the framework, upstream, date it was created, and your current plan.
-
-#### View your Site's Upstream
-
-To find your site's upstream, click **Settings**, then **About Site**.
-
-![Upstream link](../images/dashboard/upstream-link.png)
-
-### PHP Version
-
-The site default PHP version is applied to every environment unless a PHP version is explicitly selected for each environment. For more information, see [Upgrading PHP Versions](/php-versions).
-
-## Billing
-
-Here you can select or change your plan and payment method. For more information, see [Manage Plans in the Site Dashboard](/site-plan).
-
-## Support
-
-If you need assistance, our expert Customer Support team is here to help make building and managing your sites easier. You can [contact support](/support) from your Dashboard.
 
 ## Environment Specific Options
 
@@ -124,6 +84,54 @@ On this tab you can create backups, restore from an existing backup, or view the
 ### Security
 
 Set a common password for accessing an environment to add an extra layer of security to prevent unwanted access to an environment. For more details, see [Security on the Pantheon Dashboard](/security).
+
+## Workflows
+
+The **Workflows <span class="glyphicons glyphicons-chevron-down"></span>** drop-down shows current and past actions run on your Site.
+
+![The Workflows drop-down expanded to show current and completed jobs.](makeanimageforthis.png)
+
+## Team
+
+The Team tab allows you to change the site owner; add supporting agencies; and add, manage, and delete users. For more information, see [Team Management](/team-management).
+
+## Settings
+
+### Add-Ons
+
+Pantheon offers several add-ons to help you build dynamic sites. These include [Apache Solr](/solr) and [Redis](/redis).
+
+### Delete Site
+
+If you no longer need your site, you can remove it here.
+
+<Alert title="Warning" type="danger">
+
+This is a permanent change and once you delete it your site cannot be restored.
+
+</Alert>
+
+### About Site
+
+This tab shows general information about your site, such as the framework, upstream, date it was created, and your current plan.
+
+#### View your Site's Upstream
+
+To find your site's upstream, click **Settings**, then **About Site**.
+
+![Upstream link](../images/dashboard/upstream-link.png)
+
+### PHP Version
+
+The site default PHP version is applied to every environment unless a PHP version is explicitly selected for each environment. For more information, see [Upgrading PHP Versions](/php-versions).
+
+## Billing
+
+Here you can select or change your plan and payment method. For more information, see [Manage Plans in the Site Dashboard](/site-plan).
+
+## Support
+
+If you need assistance, our expert Customer Support team is here to help make building and managing your sites easier. You can [contact support](/support) from your Dashboard.
 
 ## Site UUID
 
