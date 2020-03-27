@@ -40,7 +40,7 @@ Configure environment-specific settings within the `settings.local.php` file, wh
 // Local development configuration.
 if (!defined('PANTHEON_ENVIRONMENT')) {
   // Database.
-  $databases['default']['default'] = array(
+  $databases['default']['default'] = [
     'database' => 'DATABASE',
     'username' => 'USERNAME',
     'password' => 'PASSWORD',
@@ -48,7 +48,7 @@ if (!defined('PANTHEON_ENVIRONMENT')) {
     'driver' => 'mysql',
     'port' => 3306,
     'prefix' => '',
-  );
+  ];
 }
 ```
 
