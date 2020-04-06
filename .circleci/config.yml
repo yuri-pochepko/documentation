@@ -112,7 +112,7 @@ jobs:
          path: multidev-log.txt
          destination: multidev-log.txt
 
-  lighthouse:
+  sitespeed:
     docker:
       - image: circleci/php:7.2-cli-node-browsers
         environment:
@@ -125,11 +125,17 @@ jobs:
           name: Import Functions and Variables
           command: .circleci/scripts/set-env.sh && source $BASH_ENV
       - run:
-          name: Lighthouse Audit
-          command: .circleci/tests/lighthouse/run
+          name: Install Sitespeed
+          command: cd gatsby && npm install sitespeed.io
+      - run:
+          name: Sitespeed Test Production
+          command: sitespeed.io https://pantheon.io/docs
+      - run:
+          name: Sitespeed Test Staging
+          command: sitespeed.io $MULTIDEV_SITE_URL
       - store_artifacts:
-          path: gatsby/lighthouse_data/
-          destination: lighthouse_data/
+          path: sitespeed-result/
+          destination: sitespeed.io/
 
   deploy:
     docker:
@@ -177,7 +183,7 @@ workflows:
               ignore: master
           requires:
             - build
-      - lighthouse:
+      - sitespeed:
           filters:
             branches:
               ignore: master

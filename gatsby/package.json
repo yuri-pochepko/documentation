@@ -63,7 +63,6 @@
   },
   "devDependencies": {
     "@octokit/rest": "^16.43.1",
-    "lighthouse": "^5.6.0",
     "prettier": "^1.19.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -81,10 +80,6 @@
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "lighthouse-run": "node ./tests/lighthouse/lighthouse.run.js",
-    "lighthouse-run-local": "node ./tests/lighthouse/lighthouse.run.local.js",
-    "lighthouse-test": "jest ./tests/lighthouse/lighthouse.test.js",
-    "lighthouse-pr-comment": "node ./tests/lighthouse/createPullRequestComment.js"
+    "serve": "gatsby serve"
   }
 }
