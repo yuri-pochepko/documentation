@@ -37,6 +37,7 @@ echo "export CI_NODE_INDEX='${CIRCLE_NODE_INDEX}'" >> $BASH_ENV
 echo "export CI_REPOSITORY_URL='${CIRCLE_REPOSITORY_URL}'" >> $BASH_ENV
 echo "export ARTIFACTS_DIR_URL='${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/'" >> $BASH_ENV
 echo "export ARTIFACTS_FULL_DIR='${BUILD_PATH}/artifacts'" >> $BASH_ENV
+echo "export BRANCH_CHANGES='${git --no-pager diff --name-only $(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,') master}' >> $BASH_ENV"
 
 # Export functions
 echo "source $BUILD_PATH/.circleci/scripts/functions.sh" >> $BASH_ENV
