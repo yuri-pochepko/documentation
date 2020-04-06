@@ -129,7 +129,7 @@ jobs:
           command: cd gatsby && npm install sitespeed.io
       - run:
           name: Sitespeed Test Production
-          command: gatsby/node_modules/.bin/sitespeed.io https://pantheon.io/docs $MULTIDEV_SITE_URL
+          command: gatsby/node_modules/.bin/sitespeed.io https://pantheon.io/docs $MULTIDEV_SITE_URL --plugins.add analysisstorer
       - store_artifacts:
           path: sitespeed-result/
           destination: sitespeed.io/
