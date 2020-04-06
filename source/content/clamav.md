@@ -36,7 +36,7 @@ This doc uses the [ClamAV Module for Drupal 7 & 8](https://www.drupal.org/projec
 
 1. Download and enable the module in the Drupal admin panel, or via [Terminus](/terminus):
 
-   ```bash
+   ```bash{promptUser: user}
    terminus drush $site.$env -- dl clamav
    terminus drush $site.$env -- en clamav -y
    ```
