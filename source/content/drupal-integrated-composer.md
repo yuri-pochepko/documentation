@@ -1,24 +1,27 @@
 ---
-title: Integrated Composer Early Access Documentation
+title: Integrated Composer Early Access
 description: Learn how to deploy a Drupal site with integrated Composer
-tags: [composer, workflow]
-categories: [drupal]
+tags: [composer, drupal, workflow]
+categories: [develop]
 contributors: [edwardangert]
-searchboost: 150
 reviewed: "2020-04-17"
 ---
 
-Pantheon is testing a release of Drupal with integrated Composer and is opening the feature to users for Early Access testing. Integrated Composer lets you deploy your site on Pantheon with one-click updates for both upstream commits and Composer dependencies, while still receiving upstream updates.
+Integrated Composer is a new Pantheon feature that lets you deploy your site on Pantheon with one-click updates for both upstream commits and [Composer](/composer) dependencies.
+
+Pantheon is testing Drupal with Integrated Composer and is opening the feature to [users with custom upstream access](/custom-upstream), for Early Access testing. 
 
 ## Getting Started
 
 <Alert title="Warning" type="danger">
 
-This is Early Access to a feature release, **sites will be deleted without notice**.
-
-Other existing solutions may be a better fit for your long-term needs. For example, if your continuous integration requires automated testing or operations other than running `composer update` or `composer install` see our [Build Tools](/guides/build-tools) guide.
+This is Early Access to a feature release in active development, and is intended for testing and evaluation purposes only. **Sites will be deleted without notice**.
 
 </Alert>
+
+Besides Integrated Composer for Drupal, Pantheon offers a number of advanced tools to optimize yor WebOps workflow. If your workflow requires automated testing or advanced integrations, see our [Build Tools](/guides/build-tools) guide to evaluate solutions to best fit your long-term needs. 
+
+## Create a Site
 
 1. Create a repository by forking the Pantheon-maintained repository: [https://github.com/pantheon-upstreams/drupal-project](https://github.com/pantheon-upstreams/drupal-project). For detailed steps see our general documentation how to [Create and Host the Repository Remotely](/create-custom-upstream#create-and-host-the-repository-remotely).
 1. Add a new custom upstream on the Pantheon dashboard. For details see [Connect Repository to Pantheon](/create-custom-upstream#connect-repository-to-pantheon).
@@ -140,3 +143,7 @@ git diff d94d1a1179 -- . ':(exclude)composer.lock'
 ```
 
 Try [composer-lock-diff](https://github.com/davidrjonas/composer-lock-diff) to see what packages have changed after `composer update`
+
+### Where can I give feedback?
+
+For real time discussion of Integrated Composer, visit our [Community Forum](https://discuss.pantheon.io/t/early-access-to-drupal-9-0-with-integrated-composer/1110). Please note Pantheon does not provide troubleshooting or support to Integrated Composer Early Access through support chat or tickets.
