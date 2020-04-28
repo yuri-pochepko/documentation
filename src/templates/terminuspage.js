@@ -25,7 +25,6 @@ import TerminusVersion from "../components/terminusVersion"
 import Download from "../components/download"
 import Commands from "../components/commands"
 import ReviewDate from "../components/reviewDate"
-import CmsTabList from "../components/cmsTabList"
 
 const shortcodes = {
   Callout,
@@ -35,7 +34,6 @@ const shortcodes = {
   Icon,
   Popover,
   TabList,
-  CmsTabList,
   Tab,
   Card,
   CardGroup,
