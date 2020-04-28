@@ -15,7 +15,7 @@ Learn industry best practices for caching, how to take advantage of them on the 
 
 Some web developers choose to aggregate all of their caching logic in one place, often the `settings.php` file of Drupal or a plugin dedicated to site-specific functionality in WordPress (as shown in the examples below). Alternatively, you can spread out cache-related code so that it is closest to the elements (i.e. sidebars, footers) that cause the cacheability of the response to be limited (as in this Drupal 8 example).
 
-<CmsTabList>
+<TabList>
 
 <Tab title="Drupal 8" id="d8" active={true}>
 
@@ -137,7 +137,7 @@ foreach ($regex_json_path_patterns as $regex_json_path_pattern) {
 
 </Tab>
 
-</CmsTabList>
+</TabList>
 
 As an alternative to using HTTP headers to control downstream caching, you can set a `NO_CACHE` cookie. For details, see [Working with Cookies on Pantheon](/cookies).
 

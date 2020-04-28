@@ -216,7 +216,7 @@ if ($legacy_username) {
 
 ## Redirect to Force Lowercase Letters
 
-<CmsTabList>
+<TabList>
 
 <Tab title="WordPress" id="wp-lc" active={true}>
 
@@ -234,7 +234,7 @@ Drupal sites can force lowercase letters using the following:
 
 </Tab>
 
-</CmsTabList>
+</TabList>
 
 ## Redirect Files
 
@@ -246,7 +246,7 @@ Alternatively, you can remove the file entirely from the old location. In this c
 
 If you want to restrict access to files based on the source IP address of the request, you can do so with PHP.
 
-<CmsTabList>
+<TabList>
 
 <Tab title="WordPress" active={true} id="restrict-wp">
 
@@ -387,6 +387,6 @@ function ip_in_list($ips) {
 
 </Tab>
 
-</CmsTabList>
+</TabList>
 
 For more advanced security and optimization, consider the [Advanced CDN](/professional-services#advanced-cdn) service from our Professional Services team.

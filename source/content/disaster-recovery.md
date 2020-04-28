@@ -73,7 +73,7 @@ Pantheon Solr requires additional considerations when used on sites with Disaste
 
 The reindexing process is application-side, and depending on your site the process may be different.
 
-<CmsTabList>
+<TabList>
 
 <Tab title="Drupal 8" id="solr-d8" active={true}>
 
@@ -125,7 +125,7 @@ Read more about configuring and optimizing Solr Power in the [Solr Search for Wo
 
 </Tab>
 
-</CmsTabList>
+</TabList>
 
 ### Mitigating Solr/DR issues
 

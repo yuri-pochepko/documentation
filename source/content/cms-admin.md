@@ -77,7 +77,7 @@ Do not update core using the Drupal Admin interface or Drush. Apply one-click up
 
 ### Install a New Module
 
-<CmsTabList>
+<TabList>
 
 <Tab title="Drupal 8" id="d8-1" active={true}>
 
@@ -111,7 +111,7 @@ Do not update core using the Drupal Admin interface or Drush. Apply one-click up
 
 </Tab>
 
-</CmsTabList>
+</TabList>
 
 You still need to turn these changes into commits in your Pantheon Site Dashboard. Committing code will submit your changes to version control so you can deploy up to Test and Live.
 

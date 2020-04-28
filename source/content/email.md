@@ -43,7 +43,7 @@ If you do not find your service provider in the table above, check with their su
 
 Use the following integration methods for Drupal and WordPress to configure an external SMTP service:
 
-<CmsTabList>
+<TabList>
 
 <Tab title="Drupal 7/8" id="$" active={true}>
 
@@ -63,7 +63,7 @@ Once you have chosen your SMTP provider, install and configure WordPress's [WP M
 
 </Tab>
 
-</CmsTabList>
+</TabList>
 
 ## Troubleshooting
 

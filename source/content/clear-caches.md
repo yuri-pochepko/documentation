@@ -28,7 +28,7 @@ We refer to this as "full cache clearing" because the operation removes all page
 
 ### Site Admin
 
-<CmsTabList>
+<TabList>
 
 <Tab title="WordPress" id="wp-1" active={true}>
 
@@ -65,7 +65,7 @@ We refer to this as "full cache clearing" because the operation removes all page
 
 </Tab>
 
-</CmsTabList>
+</TabList>
 
 
 ### Command Line

@@ -81,7 +81,7 @@ The [Environment Indicator](https://www.drupal.org/project/environment_indicator
 
 3. Add the following within `settings.php`:
 
-  <CmsTabList>
+  <TabList>
 
   <Tab title="Drupal 8" id="d8tab" active={true}>
 
@@ -163,7 +163,8 @@ The [Environment Indicator](https://www.drupal.org/project/environment_indicator
 
   </Tab>
 
-  </CmsTabList>
+  </TabList>
+
 
 4. Deploy the module to the Test environment within the Site Dashboard or with Terminus:
 

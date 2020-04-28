@@ -70,7 +70,7 @@ This process can potentially cause loss of data. Be sure you have no custom code
 
 </Alert>
 
-<CmsTabList>
+<TabList>
 
 <Tab title="Drupal 8" id="d8" active={true}>
 
@@ -112,7 +112,7 @@ git push origin master
 
 </Tab>
 
-</CmsTabList>
+</TabList>
 
 Double-check the files before going forward to make sure no bugs were introduced.
 
@@ -166,7 +166,7 @@ This process lets you manually resolve the conflict using the command line and a
 
 1. Navigate to a [local clone of your site repository](/git/#clone-your-site-codebase) using the command line, then add the applicable upstream as a [remote](https://git-scm.com/docs/git-remote) if you haven't done so already:
 
-  <CmsTabList>
+  <TabList>
 
   <Tab title="WordPress" id="wp-1conflict" active={true}>
 
@@ -202,11 +202,11 @@ This process lets you manually resolve the conflict using the command line and a
 
   </Tab>
 
-  </CmsTabList>
+  </TabList>
 
 1. Pull down changes from the appropriate upstream:
 
-  <CmsTabList>
+  <TabList>
 
   <Tab title="WordPress" id="wp-2conflict" active={true}>
 
@@ -246,7 +246,7 @@ This process lets you manually resolve the conflict using the command line and a
 
   </Tab>
 
-  </CmsTabList>
+  </TabList>
 
 1. If a conflict is introduced, use the output provided to resolve. For example:
 
@@ -335,7 +335,7 @@ This issue happens when you attempt to update very outdated core files from the 
 1. Set the Site Connection Mode to SFTP
 1. Reupload the `pantheon.upstream.yml` file if missing:
 
- <CmsTabList>
+ <TabList>
 
  <Tab title="WordPress" id="wp-2conflict-merge" active={true}>
 
@@ -361,7 +361,7 @@ This issue happens when you attempt to update very outdated core files from the 
 
  </Tab>
 
- </CmsTabList>
+ </TabList>
 
 1. Return to the Commit in dashboard, and note that `pantheon.upstream.yml` can now be committed
 1. Set the Site Connection Mode to Git and reapply updates
