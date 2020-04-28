@@ -3,7 +3,7 @@ import Tab from "../tab"
 import "./style.css"
 
 const TabList = ({ children }) => {
-  var cmsProp = "Drupal 8" // To be set by another component, yet to be created
+  var cmsProp = "Drupal 7" // To be set by another component, yet to be created
   //console.log("cmsProp: ", cmsProp) // For Debugging
   const [activeTab, setActiveTab] = useState(null)
   const [initialized, setInitialized] = useState(null)
@@ -16,7 +16,7 @@ const TabList = ({ children }) => {
   useEffect(() => {
     if (!initialized) {
       // determine which tab is initially active
-      const initialActiveTab = isCmsTabs
+      const initialActiveTab = isCmsTabs && selectedCms
         ? children.find(
             tab => tab.props.title.toLowerCase() == selectedCms.toLowerCase()
           ) ||
@@ -27,7 +27,7 @@ const TabList = ({ children }) => {
       //console.log("initialActiveTab: ", initialActiveTab) // For Debugging
       initialActiveTab && setActiveTab(initialActiveTab.props.id)
 
-      setInitialized(true)
+      //setInitialized(true)
     }
   }, [isCmsTabs])
 
@@ -116,7 +116,7 @@ const TabList = ({ children }) => {
   return (
     <>
       <ul className="nav nav-tabs" role="tablist">
-        {isCmsTabs
+        {isCmsTabs && selectedCms
           ? children
               .filter(tab => {
                 ///console.log("tab.props.title.includes(selectedCms: )", tab.props.title.includes(selectedCms.substring(0,6))) // For debuggind
