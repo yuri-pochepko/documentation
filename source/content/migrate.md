@@ -15,7 +15,7 @@ To ensure a successful migration, complete the following tasks on the source sit
 ## Migrate Existing Sites
 Pantheon provides a guided path for migrating existing sites to the platform, which begins by clicking the **Migrate Existing Site** button on the User Dashboard.
 
-<TabList>
+<CmsTabList>
 
 <Tab title="WordPress" id="tab-1-id" active={true}>
 
@@ -51,7 +51,6 @@ The <a class="external" href="https://wordpress.org/plugins/wp-native-php-sessio
 
 </Alert>
 
-
 </Tab>
 
 <Tab title="Drupal" id="tab-2-id">
@@ -82,7 +81,7 @@ The recommended way to migrate Drupal sites from another host is to use `drush a
 
 </Tab>
 
-</TabList>
+</CmsTabList>
 
 ## Manually Migrate
 Manually migrate your site to Pantheon when any of the following apply:
@@ -115,7 +114,7 @@ Acquia uses a nested docroot directory named `docroot`. When migrating from Acqu
 
 **Solution:** Check that the archive includes a valid code root with all core files. If multiple `settings.php` files are present, delete them from the archive.
 
-<TabList>
+<CmsTabList>
 
 <Tab title="Drupal 8" id="d8" active={true}>
 
@@ -190,8 +189,7 @@ Archives for WordPress sites should include `index.php` at the code root level, 
 
 </Tab>
 
-</TabList>
-
+</CmsTabList>
 
 ### Could not import database, unable to locate a database dump.
 **Cause:** The migration tool could not locate a MySQL database dump within the archive.
@@ -277,7 +275,7 @@ No, there is no downtime expected as part of the migration process. For detals, 
 ### How do I migrate a local site to Pantheon?
 When asked for your current site URL, enter `https://example.com` and continue the migration procedure in the Site Dashboard.
 
-<TabList>
+<CmsTabList>
 
 <Tab title="WordPress" id="tab-1-id" active={true}>
 
@@ -291,7 +289,7 @@ Drupal users with access to Drush 8 or earlier can run the provided Drush comman
 
 </Tab>
 
-</TabList>
+</CmsTabList>
 
 ### How long does the WordPress migration process take?
 Most migrations are completed within two hours. The migration time depends solely on the size of your site, so be aware that it may take more or less time than estimated. We will send you an email once your migration is complete. If there are any issues with the migration, we will notify you by email.

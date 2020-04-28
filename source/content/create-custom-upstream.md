@@ -119,7 +119,7 @@ To avoid incompatibilities, you must track Pantheon's corresponding upstream rep
 
 1. Navigate to the Custom Upstream's root directory using the command line, then add the appropriate Pantheon upstream as a [remote](https://git-scm.com/docs/git-remote):
 
-    <TabList>
+    <CmsTabList>
 
     <Tab title="WordPress" id="wp1" active={true}>
 
@@ -145,11 +145,11 @@ To avoid incompatibilities, you must track Pantheon's corresponding upstream rep
 
     </Tab>
 
-    </TabList>
+    </CmsTabList>
 
 2. Now that the Custom Upstream repository is tracking the corresponding Pantheon core upstream, we can pull in core:
 
-    <TabList>
+    <CmsTabList>
 
     <Tab title="WordPress" id="wp1" active={true}>
 
@@ -184,7 +184,7 @@ To avoid incompatibilities, you must track Pantheon's corresponding upstream rep
 
     </Tab>
 
-    </TabList>
+    </CmsTabList>
 
 ## Connect Repository to Pantheon
 

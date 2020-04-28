@@ -35,6 +35,7 @@ import ReviewDate from "../components/reviewDate"
 import Youtube from "../components/youtube"
 import ResourceSelector from "../components/resourceSelector"
 import DNSProviderDocs from "../components/dns-provider-docs.js"
+import CmsTabList from "../components/cmsTabList"
 
 const shortcodes = {
   Callout,
@@ -44,6 +45,7 @@ const shortcodes = {
   Icon,
   Popover,
   TabList,
+  CmsTabList,
   Tab,
   Card,
   CardGroup,

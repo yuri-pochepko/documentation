@@ -86,7 +86,7 @@ We recommend that you do not access an S3 bucket using your AWS root user creden
 
 You will need to install the appropriate Drupal module(s) and the AWS SDK library.
 
-<TabList>
+<CmsTabList>
 
 <Tab title="Drupal 7" id="d7tab1">
 
@@ -178,7 +178,7 @@ composer require drupal/s3fs_cors --prefer-dist
 
 </Tab>
 
-</TabList>
+</CmsTabList>
 
 ## Drupal Module Configuration
 
