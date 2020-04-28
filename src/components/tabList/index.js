@@ -3,7 +3,7 @@ import Tab from "../tab"
 import "./style.css"
 
 const TabList = ({ children }) => {
-  var cmsProp = "Drupal 7" // To be set by another component, yet to be created
+  var cmsProp = "" // To be set by another component, yet to be created
   //console.log("cmsProp: ", cmsProp) // For Debugging
   const [activeTab, setActiveTab] = useState(null)
   const [initialized, setInitialized] = useState(null)
@@ -16,14 +16,15 @@ const TabList = ({ children }) => {
   useEffect(() => {
     if (!initialized) {
       // determine which tab is initially active
-      const initialActiveTab = isCmsTabs && selectedCms
-        ? children.find(
-            tab => tab.props.title.toLowerCase() == selectedCms.toLowerCase()
-          ) ||
-          children.find(tab =>
-            tab.props.title.includes(selectedCms.substring(0, 6))
-          )
-        : children.find(tab => tab.props.active === true)
+      const initialActiveTab =
+        isCmsTabs && selectedCms
+          ? children.find(
+              tab => tab.props.title.toLowerCase() == selectedCms.toLowerCase()
+            ) ||
+            children.find(tab =>
+              tab.props.title.includes(selectedCms.substring(0, 6))
+            )
+          : children.find(tab => tab.props.active === true)
       //console.log("initialActiveTab: ", initialActiveTab) // For Debugging
       initialActiveTab && setActiveTab(initialActiveTab.props.id)
 
@@ -32,27 +33,13 @@ const TabList = ({ children }) => {
   }, [isCmsTabs])
 
   useEffect(() => {
-    const cmses = ["drupal", "wordpress"]
+    const cmses = ["Drupal", "WordPress"]
 
     const titles = children.map(tab => tab.props.title)
     //console.log("titles array: ", titles) // For Debugging
 
     function findCommonElement(array1, array2) {
-      // Loop for array1
-      for (let i = 0; i < array1.length; i++) {
-        // Loop for array2
-        for (let j = 0; j < array2.length; j++) {
-          // Compare the element of each and
-          // every element from both of the
-          // arrays
-          if (array2[j].toLowerCase().indexOf(array1[i]) > -1) {
-            // Return if common element found
-            return true
-          }
-        }
-      }
-      // Return if no common element exist
-      return false
+      return array1.some(item => array2.includes(item))
     }
 
     if (titles.length) {
