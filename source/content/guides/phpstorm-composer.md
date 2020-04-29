@@ -4,7 +4,7 @@ description: Learn how to configure JetBrains PhpStorm for Pantheon sites manage
 type: guide
 permalink: docs/guides/:basename/
 tags: [siteintegrations]
-categories: [integrate]
+category: [integrate]
 contributors: [LukasRos, rachelwhitton]
 multidev: true
 ---

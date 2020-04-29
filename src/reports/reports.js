@@ -79,7 +79,7 @@ class ReviewReport extends React.Component {
             }
             categorizedDocs: allMdx(
               filter: {
-                frontmatter: { categories: { glob: "*" }, title: { ne: "" } }
+                frontmatter: { category: { glob: "*" }, title: { ne: "" } }
               }
             ) {
               edges {
@@ -87,7 +87,7 @@ class ReviewReport extends React.Component {
                   id
                   frontmatter {
                     title
-                    categories
+                    category
                     reviewed
                     tags
                   }
@@ -402,7 +402,7 @@ class ReviewReport extends React.Component {
                           )
                         })
                         .filter(page => {
-                          return page.node.frontmatter.categories.filter(
+                          return page.node.frontmatter.category.filter(
                             category => category.indexOf(searchCategory) > -1
                           ).length
                         })
@@ -428,7 +428,7 @@ class ReviewReport extends React.Component {
                               </td>
                               <td>{page.node.frontmatter.reviewed}</td>
                               <td>
-                                {page.node.frontmatter.categories.map(
+                                {page.node.frontmatter.category.map(
                                   (category, i) => {
                                     return (
                                       <>

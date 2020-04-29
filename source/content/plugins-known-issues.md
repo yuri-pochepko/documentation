@@ -2,7 +2,7 @@
 title: WordPress Plugins and Themes with Known Issues
 description: A list of WordPress plugins, themes, and functions that are not supported and/or require workarounds.
 tags: [debugcode, siteintegrations]
-categories: [troubleshoot, integrate]
+category: [troubleshoot, integrate]
 contributors: [aleksandrkorolyov]
 ---
 

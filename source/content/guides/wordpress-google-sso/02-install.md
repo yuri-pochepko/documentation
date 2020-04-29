@@ -4,7 +4,7 @@ subtitle: Install WP SAML Auth
 description: Install the WP Saml Auth plugin
 contributors: [alexfornuto, danielbachhuber]
 tags: [siteintegrations, security]
-categories: [integrate,develop]
+category: [integrate,develop]
 reviewed: "2020-02-19"
 layout: guide
 permalink: docs/guides/wordpress-google-sso/install/

@@ -2,7 +2,7 @@
 title: Pantheon Filesystem
 description: Detailed information on how to access and optimize the Pantheon filesystem.
 tags: [infrastructure, sftpfiles]
-categories: [platform,develop]
+category: [platform,develop]
 ---
 
 Files are large pieces of static content not stored in your database, usually images, documents, or user uploads. Because they are distinct from your site's [code](/code), they are excluded from version control via Pantheon's `.gitignore` files <Popover content="The [.gitignore file](https://git-scm.com/docs/gitignore) is located at the root of the site's codebase and instructs Git on which paths to ignore." />:

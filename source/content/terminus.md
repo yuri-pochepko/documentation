@@ -6,7 +6,7 @@ description: Manual for the Terminus command line interface for advanced interac
 type: terminuspage
 layout: terminuspage
 tags: [terminus, workflow, command line, WP-CLI, Drush]
-categories: [develop]
+category: [develop]
 permalink: docs/:basename/
 nexturl: terminus/install/
 image: terminus-thumbLarge

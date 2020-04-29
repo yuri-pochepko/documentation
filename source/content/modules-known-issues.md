@@ -2,7 +2,7 @@
 title: Drupal Modules with Known Issues
 description: A list of Drupal modules that are not supported and/or require workarounds.
 tags: [Drupal, modules]
-categories: [troubleshoot, integrate]
+category: [troubleshoot, integrate]
 ---
 
 This page lists modules that may not function as expected or are currently problematic on the Pantheon platform. This is not a comprehensive list (see [other issues](#other-issues)). We continually update it as problems are reported and/or solved. If you are aware of any modules that do not work as expected, please [contact support](/support).

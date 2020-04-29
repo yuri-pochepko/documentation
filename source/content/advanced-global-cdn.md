@@ -1,7 +1,7 @@
 ---
 title: Advanced Global CDN
 description: Pantheon Professional Services can help you uniquely optimize our Global CDN
-categories: [develop]
+category: [develop]
 tags: [CDN, security]
 reviewed: "2020-02-27"
 ---

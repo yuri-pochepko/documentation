@@ -2,7 +2,7 @@
 title: Managing Site Plan Changes for EDU+ Sites
 description: Learn how to manage site plan changes for Pantheon EDU+ sites.
 tags: [manage]
-categories: [manage]
+category: [manage]
 reviewed: "2020-03-11"
 ---
 

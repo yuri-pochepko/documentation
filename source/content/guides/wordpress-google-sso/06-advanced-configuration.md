@@ -3,7 +3,7 @@ title: Using WP SAML Auth with Google Apps
 subtitle: Advanced Configuration
 description: Additional filtering can be acheived in your Theme or a must-use plugin
 contributors: [alexfornuto, danielbachhuber]
-categories: [integrate,develop]
+category: [integrate,develop]
 reviewed: "2020-02-19"
 layout: guide
 permalink: docs/guides/wordpress-google-sso/advanced-configuration

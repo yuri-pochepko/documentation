@@ -3,7 +3,7 @@ title: Using WP SAML Auth with Google Apps
 subtitle: Access Permissions and Mappings
 description: Provide access to your new SAML app for your Google users, and map the proper attributes
 contributors: [alexfornuto, danielbachhuber]
-categories: [integrate,develop]
+category: [integrate,develop]
 reviewed: "2020-02-19"
 layout: guide
 permalink: docs/guides/wordpress-google-sso/access-and-mappings

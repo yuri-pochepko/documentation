@@ -2,7 +2,7 @@
 title: Enabling Solr with Drupal 7
 description: Detailed information on using Apache Solr with Drupal 7.
 tags: [solr, search, Drupal-7]
-categories: [integrate]
+category: [integrate]
 contributors: [cityofoaksdesign, carolynshannon]
 reviewed: "2020-02-26"
 ---
