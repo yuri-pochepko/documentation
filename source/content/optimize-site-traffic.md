@@ -167,12 +167,12 @@ Install and use one of the following WordPress plugins:
 
 Similar to the IP blocking methods listed above, you can also target specific unwanted user agents that you may want to block.
 
-The `stripos` function implements a case-insenstive match which can be helpful when dealing with mixed bots or crawlers, such as `Curl/dev` vs `curlBot`. 
+The `stripos` function implements a case-insenstive match which can be helpful when dealing with mixed bots or crawlers, such as `Curl/dev` vs `curlBot`.
 
-Remember to replace the example user agent (`UglyBot`):
+Remember to replace the example user agents (`UglyBot` and `PetalBot`):
 
 ```php:title=wp-config.php%20or%20settings.php
-if (stripos($_SERVER['HTTP_USER_AGENT'], 'UglyBot') !== FALSE) {
+if (stripos($_SERVER['HTTP_USER_AGENT'], 'UglyBot' || 'PetalBot') !== FALSE) {
   header('HTTP/1.0 403 Forbidden');
   exit;
 }
